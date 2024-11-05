@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали лайка</title>
+</head>
+<body>
+    <h1>Детали лайка</h1>
+    <p>Лайк ID: {{ like.id }}</p>
+    <p>Пользователь: {{ like.user.username }}</p>
+    <p>Пост: {{ like.post.title }}</p>
+
+    <a href="{% url 'like_update' like.id %}">Редактировать</a>
+    <a href="{% url 'like_delete' like.id %}">Удалить</a>
+    <a href="{% url 'like_index' %}">Назад к списку лайков</a>
+</body>
+</html>

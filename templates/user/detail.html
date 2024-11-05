@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h1>Профиль пользователя: {{ user.username }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Дата регистрации: {{ user.date_joined }}</p>
+    
+    <a href="{% url 'user_update' user.pk %}">Редактировать</a>
+    <a href="{% url 'home' %}">Назад на главную</a>
+</body>
+</html>

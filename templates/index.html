@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts List</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create' %}">Create a New Post</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Like</title>
+</head>
+<body>
+    <h1>Создать новый лайк</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="post" value="{{ post.id }}"> 
+        {{ form.as_p }}
+        {% if form.errors %}
+            <div class="errorlist">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <button type="submit">Создать</button>
+    </form>    
+    <a href="{% url 'like_index' %}">Назад к списку лайков</a>
+</body>
+</html>
+
